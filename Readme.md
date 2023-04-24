@@ -41,8 +41,8 @@ WINNING:  If you have the most pairs of matching cards, you win!
 -----------------
 ##### SCREENSHOTS
 
-![Screenshot1](images/SCREENSHOT1.png)
-![Screenshot1](images/SCREENSHOT2.png)
+![Screenshot1](SCREENSHOT1.png)
+![Screenshot2](SCREENSHOT2.png)
 
 ----------------
 ##### MVP
