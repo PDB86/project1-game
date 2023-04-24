@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+}
+
+main {
+  border: 2px solid black;
+  margin: 0 170px 0 170px;
+  
+}
+
+div {
+  border: 2px solid black;
+  height:152px;
+  width: 152px;
+  display: inline-block;
+  margin: 25px;
+  background-image: url(/IMAGES/BACK.png);
+  background-size: cover;
+ 
+}
+
