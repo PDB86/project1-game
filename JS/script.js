@@ -29,6 +29,9 @@ let state = [
   { front: "012.png", back: "back.png", discovered: false },
 ];
 
+//////////////////////////////////////////
+
+//STOLE THIS FROM STACK OVERFLOW
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
@@ -48,36 +51,57 @@ function shuffle(array) {
 
   return array;
 }
+//////////////////////////////////////////
 
 // shuffle(state);
 
-let cardStatus = null;
-let firstCardDrawnName = null;
-let firstCardDrawnEl = null;
+document.getElementById("reshuffle").addEventListener("click", init);
+
+function init() {
+  cardStatus = null;
+  firstCardDrawnName = null;
+  firstCardDrawnEl = null;
+  state.forEach((card) => {
+    card.discovered = false;
+  });
+  // shuffle(state);
+  let divsss = document.querySelectorAll(".divs");
+  divsss.forEach((div) => {
+    div.style.backgroundImage = `url(IMAGES/back.png)`;
+  });
+}
+
+let cardStatus = null; // 3 statuses first freeze and null(default)
+let firstCardDrawnNameGlobal = null;
+let firstCardDrawnElGlobal = null;
+
+init();
 
 board.addEventListener("click", (e) => {
   if (cardStatus === null) {
     let firstSelectedElement = e.target;
-    firstCardDrawnEl = firstSelectedElement;
+    firstCardDrawnElGlobal = firstSelectedElement;
     let firstSelectedName = firstSelectedElement.getAttribute("name");
-    firstCardDrawnName = firstSelectedName;
+    firstCardDrawnNameGlobal = firstSelectedName;
     cardStatus = "first-card";
     firstSelectedElement.style.backgroundImage = `url(IMAGES/${state[firstSelectedName].front})`;
   } else if (cardStatus === "first-card") {
     let secondSelectedElement = e.target;
     let secondSelectedName = secondSelectedElement.getAttribute("name");
     secondSelectedElement.style.backgroundImage = `url(IMAGES/${state[secondSelectedName].front})`;
-    if (state[firstCardDrawnName].front !== state[secondSelectedName].front) {
+    if (
+      state[firstCardDrawnNameGlobal].front !== state[secondSelectedName].front
+    ) {
       cardStatus = "freeze";
       setTimeout(() => {
-        firstCardDrawnEl.style.backgroundImage = `url(IMAGES/${state[firstCardDrawnName].back})`;
+        firstCardDrawnElGlobal.style.backgroundImage = `url(IMAGES/${state[firstCardDrawnNameGlobal].back})`;
         secondSelectedElement.style.backgroundImage = `url(IMAGES/${state[secondSelectedName].back})`;
         cardStatus = null;
       }, 1000);
     } else {
       // cards match
       cardStatus = null;
-      state[firstCardDrawnName].discovered = true;
+      state[firstCardDrawnNameGlobal].discovered = true;
       state[secondSelectedName].discovered = true;
       // end game check
       let remainingCards = 24;
@@ -88,24 +112,9 @@ board.addEventListener("click", (e) => {
       });
       if (remainingCards === 0) {
         const winMessage = document.createElement("h1");
-        const appendMessage = document.body.append(winMessage);
         winMessage.innerText = "OMG YOU WON";
+        document.body.append(winMessage);
       }
     }
   }
 });
-
-document.getElementById("reshuffle").addEventListener("click", init);
-function init() {
-  let cardStatus = null;
-  let firstCardDrawnName = null;
-  let firstCardDrawnEl = null;
-  state.forEach((card) => {
-    card.discovered = false;
-  });
-  shuffle(state);
-  let divsss = document.getElementsByClassName('divs')
-  divsss.forEach(div => {
-    div.style.backgroundImage = `url(IMAGES/back.png)`
-  })
-}
