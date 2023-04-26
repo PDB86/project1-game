@@ -1,7 +1,7 @@
 body {
   text-align: center;
   background-color: black;
-  background-image: url(/IMAGES/background2.png);
+  background-image: url(IMAGES/background2.png);
   background-size: cover;
   
 }
@@ -24,7 +24,7 @@ div {
   width: 152px;
   display: inline-block;
   margin: 25px;
-  background-image: url(/IMAGES/BACK.png);
+  background-image: url(IMAGES/BACK.png);
   background-size: cover;
   cursor: pointer;
 }
