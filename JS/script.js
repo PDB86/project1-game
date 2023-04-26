@@ -58,21 +58,18 @@ function shuffle(array) {
 document.getElementById("reshuffle").addEventListener("click", init);
 
 function init() {
-  //Music//
-  backgroundMusic()
-  function backgroundMusic() {
-    const music = new Audio("MUSIC/music.mp3");
-    music.controls = true;
-    document.body.appendChild(music);
-    music.play();
-  };
+  playWrongCards();
+  function playWrongCards() {
+    const wrongPairSFX = new Audio("SOUNDS/wrong.mp3");
+    wrongPairSFX.play();
+  }
   cardStatus = null;
   firstCardDrawnName = null;
   firstCardDrawnEl = null;
   state.forEach((card) => {
     card.discovered = false;
   });
-  // shuffle(state);
+  shuffle(state);
   let divsss = document.querySelectorAll(".divs");
   divsss.forEach((div) => {
     div.style.backgroundImage = `url(IMAGES/back.png)`;
@@ -86,6 +83,9 @@ let firstCardDrawnElGlobal = null;
 init();
 
 board.addEventListener("click", (e) => {
+  if (e.target.tagName === 'MAIN') {
+    return;
+  }
   if (cardStatus === null) {
     let firstSelectedElement = e.target;
     firstCardDrawnElGlobal = firstSelectedElement;
@@ -93,21 +93,21 @@ board.addEventListener("click", (e) => {
     firstCardDrawnNameGlobal = firstSelectedName;
     cardStatus = "first-card";
     //SFX
-    playCard1()
+    playCard1();
     function playCard1() {
       const cardUnoSFX = new Audio("SOUNDS/card1.mp3");
       cardUnoSFX.play();
-    };
+    }
     //
     firstSelectedElement.style.backgroundImage = `url(IMAGES/${state[firstSelectedName].front})`;
   } else if (cardStatus === "first-card") {
     let secondSelectedElement = e.target;
     let secondSelectedName = secondSelectedElement.getAttribute("name");
-    playCard2()
+    playCard2();
     function playCard2() {
       const cardDosSFX = new Audio("SOUNDS/card2.mp3");
       cardDosSFX.play();
-    };
+    }
     secondSelectedElement.style.backgroundImage = `url(IMAGES/${state[secondSelectedName].front})`;
     if (
       state[firstCardDrawnNameGlobal].front !== state[secondSelectedName].front
@@ -117,19 +117,19 @@ board.addEventListener("click", (e) => {
         firstCardDrawnElGlobal.style.backgroundImage = `url(IMAGES/${state[firstCardDrawnNameGlobal].back})`;
         secondSelectedElement.style.backgroundImage = `url(IMAGES/${state[secondSelectedName].back})`;
         cardStatus = null;
-        playWrongCards()
+        playWrongCards();
         function playWrongCards() {
           const wrongPairSFX = new Audio("SOUNDS/wrong.mp3");
           wrongPairSFX.play();
-        };
+        }
       }, 1000);
     } else {
       // cards match
-      correctCards()
-        function correctCards() {
-          const correctSFX = new Audio("SOUNDS/right-card.mp3");
-          correctSFX.play();
-        };
+      correctCards();
+      function correctCards() {
+        const correctSFX = new Audio("SOUNDS/right-card.mp3");
+        correctSFX.play();
+      }
       cardStatus = null;
       state[firstCardDrawnNameGlobal].discovered = true;
       state[secondSelectedName].discovered = true;
@@ -141,19 +141,16 @@ board.addEventListener("click", (e) => {
         }
       });
       if (remainingCards === 0) {
-        playVictory()
+        playVictory();
         function playVictory() {
           const youWonSFX = new Audio("SOUNDS/win.mp3");
           youWonSFX.play();
-        };
+        }
         const winMessage = document.createElement("h1");
         winMessage.innerText = "OMG YOU WON";
         document.body.append(winMessage);
-        
       }
     }
   }
 });
 
-// add SFX
-// add Credits and links

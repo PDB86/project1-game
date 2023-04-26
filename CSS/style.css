@@ -1,6 +1,9 @@
 body {
   text-align: center;
   background-color: black;
+  background-image: url(/IMAGES/background2.png);
+  background-size: cover;
+  
 }
 h1 {
   text-align: center;
@@ -26,8 +29,9 @@ div {
 }
 #reshuffle {
   margin-top: 30px 50px 30px 50px;
-  padding: 10px 20px;
+  padding: 20px 30px;
   font-weight: bold;
+  font-size: 30px;
   border: 5px solid black;
   font-family: "Press Start 2P", cursive;
 }
@@ -35,18 +39,33 @@ div {
 h2 {
   font-family: "Press Start 2P", cursive;
   color: white;
-
 }
 
 #mus {
-  text-align: left;
   display: inline-block;
   color: white;
-
+  margin: 0 auto;
 }
 #art {
-  text-align: right;
   display: inline-block;
   color: white;
+  margin: 0 auto;
+}
 
+footer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#player { 
+  margin-top: 35px;
+  justify-content: right;
+}
+
+#audio-cont {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 180px;
 }
