@@ -3,30 +3,30 @@ const board = document.getElementById("board");
 //loguear en la consola cuando cada uno de los divs es cliqueado, y que diga cual fue
 
 let state = [
-  { front: "001.png", back: "back.png", discovered: false },
-  { front: "001.png", back: "back.png", discovered: false },
-  { front: "002.png", back: "back.png", discovered: false },
-  { front: "002.png", back: "back.png", discovered: false },
-  { front: "003.png", back: "back.png", discovered: false },
-  { front: "003.png", back: "back.png", discovered: false },
-  { front: "004.png", back: "back.png", discovered: false },
-  { front: "004.png", back: "back.png", discovered: false },
-  { front: "005.png", back: "back.png", discovered: false },
-  { front: "005.png", back: "back.png", discovered: false },
-  { front: "006.png", back: "back.png", discovered: false },
-  { front: "006.png", back: "back.png", discovered: false },
-  { front: "007.png", back: "back.png", discovered: false },
-  { front: "007.png", back: "back.png", discovered: false },
-  { front: "008.png", back: "back.png", discovered: false },
-  { front: "008.png", back: "back.png", discovered: false },
-  { front: "009.png", back: "back.png", discovered: false },
-  { front: "009.png", back: "back.png", discovered: false },
-  { front: "010.png", back: "back.png", discovered: false },
-  { front: "010.png", back: "back.png", discovered: false },
-  { front: "011.png", back: "back.png", discovered: false },
-  { front: "011.png", back: "back.png", discovered: false },
-  { front: "012.png", back: "back.png", discovered: false },
-  { front: "012.png", back: "back.png", discovered: false },
+  { front: "001.png", back: "BACK.png", discovered: false },
+  { front: "001.png", back: "BACK.png", discovered: false },
+  { front: "002.png", back: "BACK.png", discovered: false },
+  { front: "002.png", back: "BACK.png", discovered: false },
+  { front: "003.png", back: "BACK.png", discovered: false },
+  { front: "003.png", back: "BACK.png", discovered: false },
+  { front: "004.png", back: "BACK.png", discovered: false },
+  { front: "004.png", back: "BACK.png", discovered: false },
+  { front: "005.png", back: "BACK.png", discovered: false },
+  { front: "005.png", back: "BACK.png", discovered: false },
+  { front: "006.png", back: "BACK.png", discovered: false },
+  { front: "006.png", back: "BACK.png", discovered: false },
+  { front: "007.png", back: "BACK.png", discovered: false },
+  { front: "007.png", back: "BACK.png", discovered: false },
+  { front: "008.png", back: "BACK.png", discovered: false },
+  { front: "008.png", back: "BACK.png", discovered: false },
+  { front: "009.png", back: "BACK.png", discovered: false },
+  { front: "009.png", back: "BACK.png", discovered: false },
+  { front: "010.png", back: "BACK.png", discovered: false },
+  { front: "010.png", back: "BACK.png", discovered: false },
+  { front: "011.png", back: "BACK.png", discovered: false },
+  { front: "011.png", back: "BACK.png", discovered: false },
+  { front: "012.png", back: "BACK.png", discovered: false },
+  { front: "012.png", back: "BACK.png", discovered: false },
 ];
 
 //////////////////////////////////////////
@@ -72,7 +72,7 @@ function init() {
   shuffle(state);
   let divsss = document.querySelectorAll(".divs");
   divsss.forEach((div) => {
-    div.style.backgroundImage = `url(IMAGES/back.png)`;
+    div.style.backgroundImage = `url(IMAGES/BACK.png)`;
   });
 }
 
