@@ -1,7 +1,7 @@
 body {
   text-align: center;
   background-color: black;
-  background-image: url(IMAGES/background2.png);
+  background-image: url(../IMAGES/background2.png);
   background-size: cover;
   
 }
